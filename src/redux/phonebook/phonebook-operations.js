@@ -6,6 +6,9 @@ import {
   deleteContactRequest,
   deleteContactSuccess,
   deleteContactError,
+  editContactRequest,
+  editContactSuccess,
+  editContactError,
   fetchContactsRequest,
   fetchContactsSuccess,
   fetchContactsError,
@@ -46,9 +49,21 @@ const deleteContact = (id) => (dispatch) => {
     .catch((error) => dispatch(deleteContactError(error.message)));
 };
 
+const editContact = ({ id, name, number }) => dispatch => {
+  const update = { name, number };
+
+  dispatch(editContactRequest());
+
+  axios
+    .patch(`/contacts/${id}`, update)
+    .then(({ data }) => dispatch(editContactSuccess(data)))
+    .catch(error => dispatch(editContactError(error.message)));
+};
+
 // eslint-disable-next-line
 export default {
   addContact,
   deleteContact,
+  editContact,
   fetchContacts,
 };

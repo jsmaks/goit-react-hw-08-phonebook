@@ -1,22 +1,31 @@
-import React, { Component, Suspense,  } from "react";
-import { Switch, Route } from "react-router-dom";
-import { authOperations } from "./redux/auth";
-import { connect } from "react-redux";
-import AppBar from "./components/AppBar";
+import React, { Component, Suspense,} from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { authOperations } from './redux/auth';
 
-import Phonebook from "./pages/Phonebook";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import { connect } from 'react-redux';
+import AppBar from './components/AppBar';
 
-import Container from "./components/Container/Container";
-import PrivateRoute from "./components/PrivateRoute";
-import PublicRoute from "./components/PublicRoute";
+import Phonebook from './pages/Phonebook';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
-// const HomePage = lazy(() => import("./pages/HomePage"));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage"));
-// const LoginPage = lazy(() => import("./pages/LoginPage"));
-// const Phonebook = lazy(() => import("./pages/Phonebook"));
+import Container from './components/Container/Container';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+
+// const HomePage = lazy(() =>
+//   import('./pages/HomePage' /* webpackChunkName: "home-page" */),
+// );
+// const RegisterPage = lazy(() =>
+//   import('./pages/RegisterPage' /* webpackChunkName: "register-page" */),
+// );
+// const LoginPage = lazy(() =>
+//   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
+// );
+// const Phonebook = lazy(() =>
+//   import('./pages/Phonebook' /* webpackChunkName: "phonebook-page" */),
+// );
 
 class App extends Component {
   componentDidMount() {
